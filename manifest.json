@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Share Multiple Links",
+    "version": "1.0",
+    "description": "Share all open tabs as links",
+    "permissions": [
+      "tabs",  // To access browser tabs
+      "storage" // For saving user data (optional)
+    ],
+    "action": {
+      "default_popup": "popup.html",  // Reference to the UI file
+      "default_title": "Share Links"
+    },
+    "background": {
+      "service_worker": "background.js"  // Script for background operations
+    },
+    "icons": {
+      "48": "icons/icon.png",
+      "128": "icons/icon128.png"
+    }
+  }
+  
