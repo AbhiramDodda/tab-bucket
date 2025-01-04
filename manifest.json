@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "Tab Collector",
+    "version": "1.0",
+    "description": "Collect and share groups of tabs easily",
+    "permissions": [
+        "tabs",
+        "storage",
+        "clipboardWrite"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
