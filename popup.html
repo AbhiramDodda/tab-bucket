@@ -1,55 +1,130 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>URL Manager</title>
+  <title>TAB BUCKET</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Underdog&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   <style>
 
-  .checkbox-wrapper-41 {
-    --size: 65px;
+  @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+    .checkbox-wrapper-14 input[type=checkbox] {
+      --active: #275EFE;
+      --active-inner: #fff;
+      --focus: 2px rgba(39, 94, 254, .3);
+      --border: #3e3e42;
+      --border-hover: #275EFE;
+      --background: #fff;
+      --disabled: #3e3e42;
+      --disabled-inner: #E1E6F9;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      height: 18px;
+      outline: none;
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      margin: 0;
+      cursor: pointer;
+      border: 1px solid var(--bc, var(--border));
+      background: var(--b, var(--background));
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:after {
+      content: "";
+      display: block;
+      left: 0;
+      top: 0;
+      position: absolute;
+      transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:checked {
+      --b: var(--active);
+      --bc: var(--active);
+      --d-o: .3s;
+      --d-t: .6s;
+      --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:disabled {
+      --b: var(--disabled);
+      cursor: not-allowed;
+      opacity: 0.9;
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:disabled:checked {
+      --b: var(--disabled-inner);
+      --bc: var(--border);
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:disabled + label {
+      cursor: not-allowed;
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:hover:not(:checked):not(:disabled) {
+      --bc: var(--border-hover);
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:focus {
+      box-shadow: 0 0 0 var(--focus);
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:not(.switch) {
+      width: 21px;
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:not(.switch):after {
+      opacity: var(--o, 0);
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:not(.switch):checked {
+      --o: 1;
+    }
+    .checkbox-wrapper-14 input[type=checkbox] + label {
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+      margin-left: 4px;
+    }
+
+    .checkbox-wrapper-14 input[type=checkbox]:not(.switch) {
+      border-radius: 7px;
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:not(.switch):after {
+      width: 5px;
+      height: 9px;
+      border: 2px solid var(--active-inner);
+      border-top: 0;
+      border-left: 0;
+      left: 7px;
+      top: 4px;
+      transform: rotate(var(--r, 20deg));
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:not(.switch):checked {
+      --r: 43deg;
+    }
+    .checkbox-wrapper-14 input[type=checkbox].switch {
+      width: 32px;
+      border-radius: 9px;
+    }
+    .checkbox-wrapper-14 input[type=checkbox].switch:after {
+      left: 2px;
+      top: 2px;
+      border-radius: 50%;
+      width: 14px;
+      height: 14px;
+      background: var(--ab, var(--border));
+      transform: translateX(var(--x, 0));
+    }
+    .checkbox-wrapper-14 input[type=checkbox].switch:checked {
+      --ab: var(--active-inner);
+      --x: 14px;
+    }
+    .checkbox-wrapper-14 input[type=checkbox].switch:disabled:not(:checked):after {
+      opacity: 0.6;
+    }
   }
 
-  .checkbox-wrapper-41 input[type="checkbox"] {
-    -webkit-appearance: none;
-    width: var(--size);
-    height: calc(var(--size) / 2);
-    background-color:#7a807c;
-    border: 3px solid #222;
-    border-radius: 30px 100px 100px 100px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    outline: none;  
-    cursor: pointer;
-    position: relative;
-    transition: all 0.5s;
+  .checkbox-wrapper-14 * {
+    box-sizing: inherit;
+  }
+  .checkbox-wrapper-14 *:before,
+  .checkbox-wrapper-14 *:after {
+    box-sizing: inherit;
   }
 
-  .checkbox-wrapper-41 input[type="checkbox"]::before {
-    content: "";
-    position: absolute;
-    width: calc(var(--size) / 2);
-    height: calc(var(--size) / 2);
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%) scale(0.7);
-    border: 3px solid #222;
-    border-radius: 30px 100px 100px 100px;
-    background-color: #00FFFF;
-    box-sizing: border-box;
-    transition: all 0.5s;
-  }
-
-  .checkbox-wrapper-41 input[type="checkbox"]:checked {
-    background-color:#00FFFF;
-    border-radius: 100px 100px 30px 100px;
-  }
-
-  .checkbox-wrapper-41 input[type="checkbox"]:checked::before {
-    left: 50%;
-    background-color: #7a807c;
-    border-radius: 100px 100px 30px 100px;
-  }
     body {
       color: #ffffff;
       width: 400px;
@@ -66,7 +141,7 @@
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
       margin-left: 3px;
       border-style: solid;
-      border-color:#00FFFF;
+      border-image: radial-gradient(circle, #00FFFF, #0f62a5) 1;
       max-height: 200px;
       overflow-y: auto;
     }
@@ -124,36 +199,35 @@
     }
 
     h2 {
-      font-family:"Tektur", sans-serif;
-      font-size: 36px;
-      font-weight: bold;
-      text-decoration:underline;
-      text-transform: uppercase;
+      font-family: "Winky Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: weight;
+      font-style:normal;
+      font-size: 17px;
       letter-spacing: 3px;
-      color: #00FFFF;              
+      color: #408ecf;              
     }
     .img-logo{
-      height:66px;
-      width:66px;
-      border-radius: 66px;
+      height:22px;
+      width:22px;
+      border-radius: 22px;
+      margin: 10px;;
     }
     .header-container {
       display: flex;
       align-items: center; 
-      gap: 10px; 
-      justify-content: center;
+      display: flex;
+      justify-content: end;
+      gap: 3px; 
     }
   </style>
 </head>
 <body>
-  <div  class="header-container">
-    <img src="icon.png" class="img-logo"/>
-    <h2 >TAB-BUCKET</h2>
-  </div>
+  
   <div>
-    <div class="checkbox-wrapper-41">
-      <label style="padding:0px;justify-content: start; font-weight: bold; font-style: italic;">
-        <input class="order:1;" type="checkbox" id="select-all">SELECT ALL
+    <div class="checkbox-wrapper-14" style="margin: 3px;">
+      <label  style="padding:1px;justify-content: start; font-weight: bold; margin-left:2px;font-style: italic;">
+        <input class="switch order:1;" type="checkbox" id="select-all"> <span style="color:#222;">_</span>SELECT ALL
       </label>
     </div>
     <div class="container" id="url-list">
@@ -163,6 +237,10 @@
       <button id="paste-detect-button">Detect & Open Pasted URLs</button>
     </div>
     <div style="color:green;" id="message" class="message">URLs copied to clipboard!</div>
+  </div>
+  <div  class="header-container">
+    <img src="images/icon.png" class="img-logo"/>
+    <h2>Tab Bucket</h2>
   </div>
   <script src="popup.js"></script>
 </body>
