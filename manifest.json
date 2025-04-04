@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Tab Bucket",
   "version": "1.1",
-  "description": "Copy, share and open multiple links with ease.",
+  "description": "Copy, and open multiple links across active tabs with ease.",
   "permissions": [
     "tabs",
     "clipboardRead",
